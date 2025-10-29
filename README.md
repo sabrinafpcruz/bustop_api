@@ -100,6 +100,7 @@ Content-Type: application/json
   "temperatura": 27.3,
   "umidade": 61,
   "pessoas": 3
+  "conforto": true
 }
 ```
 
@@ -117,6 +118,7 @@ Dados recebidos e salvos no MongoDB!
   temperatura: Number,
   umidade: Number,
   pessoas: Number,
+  coforto: Boolean,
   timestamp: Date
 }
 ```
