@@ -19,3 +19,13 @@ export const saveLeitura = async (req, res) => {
   console.log("Dados recebidos:", { temperatura, umidade, pessoas, conforto });
   res.send("Dados recebidos e salvos no MongoDB!");
 };
+
+export const getLeituras = async (req, res) => {
+  try {
+    const leituras = await Leitura.find().sort({ createdAt: -1 });
+    res.json(leituras);
+  }
+  catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
