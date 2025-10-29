@@ -14,7 +14,7 @@ app.use(leituraRoutes);
 
 //Rota de teste
 app.get("/", (req, res) => {
-  res.send(" API SmartStop está rodando!");
+  res.send(" API BusTOP está rodando!");
 });
 
 app.listen(3000, () => console.log("API rodando na porta 3000"));

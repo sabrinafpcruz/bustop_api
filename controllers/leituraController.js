@@ -1,20 +1,21 @@
 import Leitura from "../models/leitura.js";
 
 export const saveLeitura = async (req, res) => {
-  const { temperatura, umidade, pessoas } = req.body;
+  const { temperatura, umidade, pessoas, conforto } = req.body;
 
   // Validação de dados
   if (
     typeof temperatura !== "number" || temperatura < -50 || temperatura > 100 ||
     typeof umidade !== "number" || umidade < 0 || umidade > 100 ||
-    typeof pessoas !== "number" || pessoas < 0
+    typeof pessoas !== "number" || pessoas < 0 ||
+    typeof conforto !== "boolean"
   ) {
-    return res.status(400).send("❌ Dados inválidos");
+    return res.status(400).send("Dados inválidos");
   }
 
-  const leitura = new Leitura({ temperatura, umidade, pessoas });
+  const leitura = new Leitura({ temperatura, umidade, pessoas, conforto });
   await leitura.save();
 
-  console.log(" Dados recebidos:", { temperatura, umidade, pessoas });
+  console.log("Dados recebidos:", { temperatura, umidade, pessoas, conforto });
   res.send("Dados recebidos e salvos no MongoDB!");
 };

@@ -4,6 +4,7 @@ const leituraSchema = new mongoose.Schema({
   temperatura: Number,
   umidade: Number,
   pessoas: Number,
+  conforto: Boolean,          
   timestamp: { type: Date, default: Date.now }
 });
 
